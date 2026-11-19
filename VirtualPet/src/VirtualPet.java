@@ -25,9 +25,11 @@ public class VirtualPet
 
     public String toString()
     {
-        return name + "'s Information:\n" + "Energy: " + energyLevel + "\n" + "Happiness: "
+        String output = name + "'s Information:\n" + "Energy: " + energyLevel + "\n" + "Happiness: "
                 + happinessLevel + "\n" + "Weight: " + weight + "g\n" + "Age: " + ageMonths +
                 " months\n" + "and " + ageYears + " years";
+
+        return output;
     }
 
     public void feed()
@@ -60,6 +62,27 @@ public class VirtualPet
         if(weight > 5)
         {
             weight--;
+        }
+    }
+
+    public void updateStatus()
+    {
+        if(energyLevel > 0)
+        {
+            energyLevel--;
+        }
+
+        if(happinessLevel > 0)
+        {
+            happinessLevel--;
+        }
+
+        ageMonths++;
+
+        if(ageMonths == 12)
+        {
+            ageYears++;
+            ageMonths = 0;
         }
     }
 }
